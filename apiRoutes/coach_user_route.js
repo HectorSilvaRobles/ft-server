@@ -9,6 +9,7 @@ const {auth} = require('../middleware/auth');
 
 // Authenticate user token
 router.get('/auth', auth, (req, res) => {
+    
     res.status(200).json({
         _id: req.user._id,
         isAdmin: req.user.accountRole === 'admin' ? true : false,
