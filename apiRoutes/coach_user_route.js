@@ -4,12 +4,10 @@ const { coachUser} = require('../models/coachSchema');
 const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
-
 const {auth} = require('../middleware/auth');
 
 // Authenticate user token
-router.get('/auth', auth, (req, res) => {
-    
+router.get('/auth', auth, (req, res) => { 
     res.status(200).json({
         _id: req.user._id,
         isAdmin: req.user.accountRole === 'admin' ? true : false,
