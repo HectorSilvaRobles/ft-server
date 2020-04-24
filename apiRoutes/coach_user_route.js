@@ -7,8 +7,7 @@ const saltRounds = 10;
 const {auth} = require('../middleware/auth');
 
 // Authenticate user token
-router.get('/auth', auth, (req, res) => { 
-    console.log(req.user)
+router.get('/auth', auth, (req, res) => {
     res.status(200).json({
         _id: req.user._id,
         isAdmin: req.user.accountRole === 'admin' ? true : false,
@@ -20,7 +19,6 @@ router.get('/auth', auth, (req, res) => {
         profile_pic: req.user.profile_pic
     })
 })
-
 
 
 // Register new coach user (api endpoint)
@@ -75,11 +73,10 @@ router.post('/login', (req, res) => {
 
             // generate token 
             user.generateToken((err, user) => {
-                
                 if(err){
                     return res.status(400).send(err)
                 }
-
+                console.log('the user in login user', user)
                 res.cookie("w_authExp", user.tokenExp);
                 res.cookie("w_auth", user.token).status(200).json({
                     loginSuccess: true,
