@@ -82,6 +82,7 @@ coachSchema.methods.generateToken = function(cb){
 
     user.token = token;
     user.save(function(err, user){
+        console.log('this is user in schema method', user)
         if(err){
             return cb(err)
         }
