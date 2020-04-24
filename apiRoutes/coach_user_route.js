@@ -8,6 +8,7 @@ const {auth} = require('../middleware/auth');
 
 // Authenticate user token
 router.get('/auth', auth, (req, res) => { 
+    console.log(req.user)
     res.status(200).json({
         _id: req.user._id,
         isAdmin: req.user.accountRole === 'admin' ? true : false,
@@ -54,7 +55,6 @@ router.post('/register', (req, res) => {
 
 // Login coach users (api endpoint)
 router.post('/login', (req, res) => {
-
     // find the coach user's email
     coachUser.findOne({email: req.body.email}, (err, user) => {
         if(!user){
@@ -75,12 +75,13 @@ router.post('/login', (req, res) => {
 
             // generate token 
             user.generateToken((err, user) => {
+                
                 if(err){
                     return res.status(400).send(err)
                 }
 
-                res.cookie('w_authExp', user.tokenExp);
-                res.cookie('w_auth', user.token).status(200).json({
+                res.cookie("w_authExp", user.tokenExp);
+                res.cookie("w_auth", user.token).status(200).json({
                     loginSuccess: true,
                     user: user
                 })

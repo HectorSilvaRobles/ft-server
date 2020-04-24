@@ -1,7 +1,6 @@
 const {coachUser} = require('../models/coachSchema');
 
 let auth = (req, res, next) => {
-    console.log(req)
     let token = req.cookies.w_auth;
 
     coachUser.findByToken(token, (err, user) => {
@@ -14,7 +13,6 @@ let auth = (req, res, next) => {
                 error: true
             })
         }
-
         req.token = token;
         req.user = user;
         next()
