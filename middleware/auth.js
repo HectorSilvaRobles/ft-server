@@ -4,6 +4,7 @@ let auth = (req, res, next) => {
     let token = req.cookies.w_auth;
 
     coachUser.findByToken(token, (err, user) => {
+        console.log('this is the user in auth middleware', user)
         if(err){
             return res.json({error: err})
         }
