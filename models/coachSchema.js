@@ -14,7 +14,7 @@ const coachSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        minglength: 5
+        minglenght: 5
     },
     lastname: {
         type: String,
@@ -27,7 +27,7 @@ const coachSchema = mongoose.Schema({
     token: {
         type: String,
     },
-    tokenExp : {
+    tokenExp: {
         type: Number
     },
     accountRole: {
@@ -42,6 +42,7 @@ coachSchema.pre('save', function(next){
 
     // only hash the password if it has been modified or is new
     if(user.isModified('password')){
+        console.log('password has been modified');
 
         // Generate a salt
         bcrypt.genSalt(saltRounds, (err, salt) => {
@@ -54,7 +55,7 @@ coachSchema.pre('save', function(next){
                 if(err){
                     return next(err)
                 }
-                user.password = hash;
+                user.password = hash
                 next();
             })
         })
@@ -70,7 +71,7 @@ coachSchema.methods.comparePassword = function(candidatePassword, cb){
         if(err){
             return cb(err)
         }
-        cb(null, isMatch)
+        cb(null, isMatch);
     });
 };
 
@@ -84,16 +85,16 @@ coachSchema.methods.generateToken = function(cb){
     user.save(function(err, user){
         console.log('this is user in schema method', user)
         if(err){
-            return cb(err)
+            return cb(err);
         }
-        cb(null, user)
-    })
-}
+        cb(null, user);
+    });
+};
 
 coachSchema.statics.findByToken = function(token, cb){
     var user = this;
     jwt.verify(token, 'secret', function(err, decode){
-        user.findOne({"_id":decode, "token": token}, function(err, user) {
+        user.findOne({"_id":decode, "token": token}, function(err, user){
             if(err){
                 return cb(err)
             }
