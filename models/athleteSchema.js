@@ -20,9 +20,6 @@ const coachPostsSchema = mongoose.Schema({
     },
     type_of_post : {
         type: String
-    },
-    position : {
-        type: String
     }
 })
 
@@ -80,6 +77,9 @@ const athleteSchema = mongoose.Schema({
     },
     age : {
         type: Number
+    },
+    position : {
+        type: String
     },
     coach_posts: [coachPostsSchema],
     performance_logs : [performanceLog],
