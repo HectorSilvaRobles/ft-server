@@ -20,6 +20,9 @@ const coachPostsSchema = mongoose.Schema({
     },
     type_of_post : {
         type: String
+    },
+    position : {
+        type: String
     }
 })
 
