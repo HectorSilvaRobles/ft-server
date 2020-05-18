@@ -13,11 +13,11 @@ app.use(cookieParser());
 
 //enables cors
 // app.use(cors())
-app.use(cors({credentials: true, origin: 'http://127.0.0.1:3000'}));
+app.use(cors({credentials: true, origin: 'http://127.0.0.1'}));
 // app.use(cors({credentials: true, origin: '*'}));
 
 app.use(function(req, res, next) {
-        res.header("Access-Control-Allow-Origin","http://127.0.0.1:3000");
+        res.header("Access-Control-Allow-Origin","http://127.0.0.1");
         // res.header("Access-Control-Allow-Origin","*");
 
         res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Accept');
