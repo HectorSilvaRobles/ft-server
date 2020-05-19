@@ -14,11 +14,11 @@ app.use(cookieParser());
 //enables cors
 // app.use(cors())
 // app.use(cors({credentials: true, origin: 'http://127.0.0.1:3000'}));
-app.use(cors({credentials: true, origin: 'https://master.d19991sr5v1b1y.amplifyapp.com'}));
+app.use(cors({credentials: true, origin: 'https://abfutboltraining.com'}));
 
 app.use(function(req, res, next) {
         // res.header("Access-Control-Allow-Origin","http://127.0.0.1:3000");
-        res.header("Access-Control-Allow-Origin","https://master.d19991sr5v1b1y.amplifyapp.com");
+        res.header("Access-Control-Allow-Origin","https://abfutboltraining.com");
         res.header('Access-Control-Allow-Headers: Accept, Content-Type, X-Requested-With, x-api-key')
         // res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Accept');
         res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
