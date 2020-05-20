@@ -13,12 +13,12 @@ app.use(cookieParser());
 
 //enables cors
 // app.use(cors())
-app.use(cors({credentials: true, origin: 'http:/localhost:3000'}));
-// app.use(cors({credentials: true, origin: 'https://www.abfutboltraining.com' }));
+// app.use(cors({credentials: true, origin: 'http:/localhost:3000'}));
+app.use(cors({credentials: true, origin: 'https://www.abfutboltraining.com' }));
 
 app.use(function(req, res, next) {
-        res.header("Access-Control-Allow-Origin","http://localhost:3000");
-        // res.header("Access-Control-Allow-Origin", "https://www.abfutboltraining.com/","https://www.abfutboltraining.com");
+        // res.header("Access-Control-Allow-Origin","http://localhost:3000");
+        res.header("Access-Control-Allow-Origin", "https://www.abfutboltraining.com/","https://www.abfutboltraining.com");
         res.header('Access-Control-Allow-Headers: Accept, Content-Type, X-Requested-With, x-api-key')
         // res.header('Access-Control-Allow-Headers', '*');
         res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
