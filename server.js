@@ -21,8 +21,8 @@ app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "https://www.abfutboltraining.com/","https://www.abfutboltraining.com");
         res.header('Access-Control-Allow-Headers: Accept, Content-Type, X-Requested-With, x-api-key')
         // res.header('Access-Control-Allow-Headers', '*');
-        // res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        res.header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, PATCH, DELETE ");
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        // res.header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, PATCH, DELETE ");
 
         res.header('Access-Control-Allow-Credentials', true);
         // res.header("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
