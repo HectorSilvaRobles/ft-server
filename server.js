@@ -11,12 +11,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-console.log(process.env.NODE_ENV)
-var env = process.env.NODE_ENV || 'development'
-console.log('this is env', env)
 //enables cors
 // app.use(cors())
-// app.use(cors({credentials: true, origin: 'http:/localhost:3000'}));
+app.use(cors({credentials: true, origin: 'http:/localhost:3000'}));
 app.use(cors({credentials: true, origin: 'https://www.abfutboltraining.com'}));
 
 app.use(function(req, res, next) {
