@@ -13,7 +13,7 @@ app.use(cookieParser());
 
 //enables cors
 // app.use(cors())
-app.use(cors({credentials: true, origin: 'http:/localhost:3000'}));
+// app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use(cors({credentials: true, origin: 'https://www.abfutboltraining.com'}));
 
 app.use(function(req, res, next) {
