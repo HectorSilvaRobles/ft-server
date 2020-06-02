@@ -11,13 +11,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-//enables cors
-// app.use(cors())
-// app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
-
+//Enables CORS
+// allow multiple origins
 var allowedOrigins = ["https://www.abfutboltraining.com/", "https://www.abfutboltraining.com", "http://localhost:3000"];
-
-// app.use(cors({credentials: true, origin: 'https://www.abfutboltraining.com'}));
 app.use(cors({
     credentials: true,
     origin: function(origin, callback){
@@ -27,7 +23,7 @@ app.use(cors({
             callback(new Error('not allowed by cors'))
         }
     }
-}))
+}));
 
 app.use(function(req, res, next) {
         // allow access for multiple origins

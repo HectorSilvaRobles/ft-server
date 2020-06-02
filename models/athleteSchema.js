@@ -75,10 +75,13 @@ const athleteSchema = mongoose.Schema({
         type: String,
         maxlength:70
     },
-    age : {
-        type: Number
+    dateOfBirth : {
+        type: String
     },
     position : {
+        type: String
+    },
+    club : {
         type: String
     },
     coach_posts: [coachPostsSchema],
